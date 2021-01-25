@@ -1,0 +1,36 @@
+spring:
+           datasource:
+             driver-class-name: com.mysql.cj.jdbc.Driver
+             username: root
+             password: 96114Zhaozhiwei
+             url: jdbc:mysql://rm-bp1wcgab9xbu3pb68.mysql.rds.aliyuncs.com:3306/mall_zzw?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+           redis:
+             host: 127.0.0.1
+             port: 6379
+           rabbitmq:
+             addresses: 127.0.0.1
+             port: 5672
+             username: guest
+             password: guest
+#             password:
+#告诉项目xml路径在哪
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+#    控制台日志配置，打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
+
+#session过期时间,当有其他项目占用8080端口时要修改端口
+server:
+  servlet:
+    session:
+      timeout: 1200
+  port: 8080
+
+#修改日志
+#去掉时间（进程号-日志级别-属于哪个包）
+logging:
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"
+
